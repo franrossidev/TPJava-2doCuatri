@@ -17,6 +17,8 @@ public abstract class Stand {
         listaAccesorios = _listaAccesorios;
     };
 
+    //DESARROLLAR EL TOSTRING
+
     public String getIDStand() {
         return IDStand;
     }

@@ -12,6 +12,18 @@ public class Exterior extends Stand {
 
     @Override
     public double Valor() {
-        return 0;//IMPLEMENTAR
+        double sumaPrecios=0;
+        if(getListaAccesorios().size() >= 3) {
+            for (Accesorio aux : getListaAccesorios()) {
+                sumaPrecios += aux.getPrecioAlquiler() * 0.9;
+
+            }
+        }
+        else{
+            for (Accesorio aux : getListaAccesorios()) {
+                sumaPrecios += aux.getPrecioAlquiler();
+            }
+        }
+        return sumaPrecios + getPrecioM2() * getSuperficie();
     }
 }

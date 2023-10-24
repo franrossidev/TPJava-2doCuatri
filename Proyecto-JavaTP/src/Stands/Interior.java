@@ -13,7 +13,11 @@ public class Interior extends Stand {
 
     @Override
     public double Valor() {
-        return 0;//IMPLEMENTAR
+        double sumaPrecio = 0;
+        for(Accesorio aux : getListaAccesorios()){
+            sumaPrecio += aux.getPrecioAlquiler();
+        }
+        return sumaPrecio + (getPrecioM2() * getSuperficie()) + cantLuminarias * 1000;
     }
 
     public int getCantLuminarias() {
