@@ -1,0 +1,22 @@
+[
+  {
+    "IDCliente": 12345,
+    "descripcion": "John Doe"
+  },
+  {
+    "IDCliente": 67890,
+    "descripcion": "Jane Smith"
+  },
+  {
+    "IDCliente": 13579,
+    "descripcion": "ACME Corporation"
+  },
+  {
+    "IDCliente": 24680,
+    "descripcion": "Globex Corporation"
+  },
+  {
+    "IDCliente": 36912,
+    "descripcion": "Hooli Inc."
+  }
+]
