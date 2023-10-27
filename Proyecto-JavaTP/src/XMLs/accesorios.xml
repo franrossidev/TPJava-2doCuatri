@@ -1,0 +1,52 @@
+<accesorios>
+    <accesorio>
+        <id>01</id>
+        <descripcion>Mesa Redonda</descripcion>
+        <precioAlquiler>130.2</precioAlquiler>
+    </accesorio>
+    <accesorio>
+        <id>02</id>
+        <descripcion>Silla Plegable</descripcion>
+        <precioAlquiler>55.0</precioAlquiler>
+    </accesorio>
+    <accesorio>
+        <id>03</id>
+        <descripcion>Televisor LCD</descripcion>
+        <precioAlquiler>250.0</precioAlquiler>
+    </accesorio>
+    <accesorio>
+        <id>04</id>
+        <descripcion>Escritorio de Madera</descripcion>
+        <precioAlquiler>180.0</precioAlquiler>
+    </accesorio>
+    <accesorio>
+        <id>05</id>
+        <descripcion>Lámpara de Pie</descripcion>
+        <precioAlquiler>30.5</precioAlquiler>
+    </accesorio>
+    <accesorio>
+        <id>06</id>
+        <descripcion>Proyector HD</descripcion>
+        <precioAlquiler>320.0</precioAlquiler>
+    </accesorio>
+    <accesorio>
+        <id>07</id>
+        <descripcion>Mesa de Conferencia</descripcion>
+        <precioAlquiler>150.0</precioAlquiler>
+    </accesorio>
+    <accesorio>
+        <id>08</id>
+        <descripcion>Silla Acolchada</descripcion>
+        <precioAlquiler>70.0</precioAlquiler>
+    </accesorio>
+    <accesorio>
+        <id>09</id>
+        <descripcion>Pantalla LED</descripcion>
+        <precioAlquiler>280.0</precioAlquiler>
+    </accesorio>
+    <accesorio>
+        <id>10</id>
+        <descripcion>Mesa de Recepción</descripcion>
+        <precioAlquiler>110.0</precioAlquiler>
+    </accesorio>
+</accesorios>

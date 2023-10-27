@@ -39,6 +39,9 @@ public class Principal extends JDialog {
                 dispose();
             }
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+
+        //Lectura de archivos XMLs
+        
     }
 
     private void onOK() {
