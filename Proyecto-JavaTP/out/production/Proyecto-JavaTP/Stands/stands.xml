@@ -1,0 +1,98 @@
+<feria>
+    <stand tipo="interior">
+        <codigo>STAND01</codigo>
+        <superficie>25</superficie>
+        <precioM2>120.25</precioM2>
+        <idCliente>0001</idCliente>
+        <accesorios>
+            <accesorio>01</accesorio>
+            <accesorio>03</accesorio>
+            <accesorio>04</accesorio>
+        </accesorios>
+        <luminarias>7</luminarias>
+    </stand>
+    <stand tipo="exterior">
+        <codigo>STAND02</codigo>
+        <superficie>23</superficie>
+        <precioM2>110.25</precioM2>
+        <idCliente>0002</idCliente>
+        <accesorios>
+            <accesorio>02</accesorio>
+        </accesorios>
+    </stand>
+    <stand tipo="interior">
+        <codigo>STAND03</codigo>
+        <superficie>30</superficie>
+        <precioM2>110.0</precioM2>
+        <idCliente>0003</idCliente>
+        <accesorios>
+            <accesorio>05</accesorio>
+        </accesorios>
+        <luminarias>5</luminarias>
+    </stand>
+    <stand tipo="exterior">
+        <codigo>STAND04</codigo>
+        <superficie>35</superficie>
+        <precioM2>100.0</precioM2>
+        <idCliente>0004</idCliente>
+    </stand>
+    <stand tipo="interior">
+        <codigo>STAND05</codigo>
+        <superficie>20</superficie>
+        <precioM2>125.0</precioM2>
+        <idCliente>0005</idCliente>
+        <accesorios>
+            <accesorio>06</accesorio>
+            <accesorio>08</accesorio>
+            <accesorio>09</accesorio>
+            <accesorio>10</accesorio>
+        </accesorios>
+        <luminarias>6</luminarias>
+    </stand>
+    <stand tipo="exterior">
+        <codigo>STAND06</codigo>
+        <superficie>28</superficie>
+        <precioM2>95.0</precioM2>
+        <idCliente>0006</idCliente>
+        <accesorios>
+            <accesorio>3</accesorio>
+            <accesorio>6</accesorio>
+            <accesorio>9</accesorio>
+        </accesorios>
+    </stand>
+    <stand tipo="interior">
+        <codigo>STAND07</codigo>
+        <superficie>15</superficie>
+        <precioM2>130.0</precioM2>
+        <idCliente>0007</idCliente>
+        <accesorios>
+            <accesorio>4</accesorio>
+            <accesorio>2</accesorio>
+            <accesorio>8</accesorio>
+        </accesorios>
+        <luminarias>4</luminarias>
+    </stand>
+    <stand tipo="exterior">
+        <codigo>STAND08</codigo>
+        <superficie>40</superficie>
+        <precioM2>90.0</precioM2>
+        <idCliente>0008</idCliente>
+    </stand>
+    <stand tipo="interior">
+        <codigo>STAND09</codigo>
+        <superficie>25</superficie>
+        <precioM2>80.0</precioM2>
+        <idCliente>0009</idCliente>
+        <luminarias>2</luminarias>
+    </stand>
+    <stand tipo="exterior">
+        <codigo>STAND10</codigo>
+        <superficie>30</superficie>
+        <precioM2>130.0</precioM2>
+        <idCliente>0010</idCliente>
+        <accesorios>
+            <accesorio>6</accesorio>
+            <accesorio>2</accesorio>
+        </accesorios>
+    </stand>
+</feria>

@@ -1,0 +1,42 @@
+<clientes>
+    <cliente>
+        <idCliente>0001</idCliente>
+        <descripcion>Juan Gonzales</descripcion>
+    </cliente>
+    <cliente>
+        <idCliente>0002</idCliente>
+        <descripcion>Empresa ABC S.A.</descripcion>
+    </cliente>
+    <cliente>
+        <idCliente>0003</idCliente>
+        <descripcion>Maria Rodriguez</descripcion>
+    </cliente>
+    <cliente>
+        <idCliente>0004</idCliente>
+        <descripcion>John Smith</descripcion>
+    </cliente>
+    <cliente>
+        <idCliente>0005</idCliente>
+        <descripcion>Empresa XYZ Ltda.</descripcion>
+    </cliente>
+    <cliente>
+        <idCliente>0006</idCliente>
+        <descripcion>Laura Brown</descripcion>
+    </cliente>
+    <cliente>
+        <idCliente>0007</idCliente>
+        <descripcion>Empresa 123 Inc.</descripcion>
+    </cliente>
+    <cliente>
+        <idCliente>0008</idCliente>
+        <descripcion>Carlos Martinez</descripcion>
+    </cliente>
+    <cliente>
+        <idCliente>0009</idCliente>
+        <descripcion>Susan Johnson</descripcion>
+    </cliente>
+    <cliente>
+        <idCliente>0010</idCliente>
+        <descripcion>Empresa XYZ SRL</descripcion>
+    </cliente>
+</clientes>
