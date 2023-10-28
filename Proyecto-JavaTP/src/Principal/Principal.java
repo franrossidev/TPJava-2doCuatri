@@ -3,6 +3,7 @@ package Principal;
 
 import Accesorios.Accesorio;
 import Cliente.Cliente;
+import Reportes.Reporte;
 import Stands.Exterior;
 import Stands.Interior;
 import Stands.Stand;
@@ -79,7 +80,9 @@ public class Principal extends JDialog {
     }
 
     private void onReporte(){
-
+        Reporte reporte = new Reporte();
+        reporte.pack();
+        reporte.setVisible(true);
     }
     private void onBuscar() {
         // Obtener el ID del cliente a partir de la descripción seleccionada en el JComboBox

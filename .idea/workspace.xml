@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f9975c21-17ad-4b0b-8d92-547204cad018" name="Changes" comment="" />
+    <list default="true" id="f9975c21-17ad-4b0b-8d92-547204cad018" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Proyecto-JavaTP/src/Stands/Stand.java" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto-JavaTP/src/Stands/Stand.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,10 +18,10 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2XDILjschvOHfg1kf6ro9udOfWZ" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />

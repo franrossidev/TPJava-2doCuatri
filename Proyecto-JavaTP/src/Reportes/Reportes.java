@@ -26,7 +26,7 @@ public class Reportes {
         Collections.sort(listaStandsActualizada, new Comparator<Stand>(){
             @Override
             public int compare(Stand s1, Stand s2) {
-               return new Double(s1.Valor(listaAccesorios)).compareTo(new Double(s2.Valor(listaAccesorios)));
+               return new Double(s2.Valor(listaAccesorios)).compareTo(new Double(s1.Valor(listaAccesorios)));
             }
         });
         // Armo el texto con el Listado de Stands
@@ -60,7 +60,7 @@ public class Reportes {
                     }
                 }
             }
-            texto.append("Cantidad de usos en los stands: " + sumaUsos + "\n")
+            texto.append("Cantidad de usos en los stands: " + sumaUsos + "\n");
         }    
 
         return listaAccesoriosActualizada;

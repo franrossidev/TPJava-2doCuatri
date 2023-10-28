@@ -57,7 +57,6 @@ public abstract class Stand {
                     Accesorio accesorioact = listaPreciosAccesorios.get(j);
                     if (listaAccesorios.get(i) == accesorioact.getIDAccesorio()) {
                         result += accesorioact.mostrar() + "\n";
-
                     }
                 }
             }
