@@ -30,6 +30,8 @@ public class Principal extends JDialog {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonBuscar);
+        setTitle("Principal");
+
 
         String xmlFilePath = "src/Cliente/clientes.xml";
         listaclientes = Cliente.cargaXML(xmlFilePath);
@@ -39,7 +41,7 @@ public class Principal extends JDialog {
         }
         buttonBuscar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                onOK();
+                onBuscar();
             }
         });
 
@@ -70,7 +72,7 @@ public class Principal extends JDialog {
         mostrarStand(listastands.get(0));
     }
 
-    private void onOK() {
+    private void onBuscar() {
         // add your code here
         long idCliente = Long.parseLong((String) clienteComboBox.getSelectedItem());
         textArea1.setText(listastands.get((int) idCliente - 1).mostrar(listaaccesorios));
