@@ -28,6 +28,10 @@ public class Cliente {
     public long getIDCliente() {
         return IDCliente;
     }
+    public String mostrar() {
+        return "ID Cliente: " + this.IDCliente + "\n" +
+                "Descripción: " + this.descripcion + "\n";
+    }
     public static ArrayList<Cliente> cargaXML(String xmlFilePath) {
         try {
             // Crear una fábrica de constructores de documentos
@@ -38,7 +42,7 @@ public class Cliente {
             Document document = builder.parse(new File(xmlFilePath));
 
             // Obtener la lista de nodos de cliente
-            NodeList nodeList = document.getElementsByTagName("Cliente");
+            NodeList nodeList = document.getElementsByTagName("cliente");
 
             // Crear una lista de clientes
             ArrayList<Cliente> clientes = new ArrayList<>();
@@ -48,11 +52,10 @@ public class Cliente {
                 Node node = nodeList.item(i);
                 if (node.getNodeType() == Node.ELEMENT_NODE) {
                     Element element = (Element) node;
-                    long IDCliente = Long.parseLong(element.getElementsByTagName("IDCliente").item(0).getTextContent());
+                    long IDCliente = Long.parseLong(element.getElementsByTagName("idCliente").item(0).getTextContent());
                     String descripcion = element.getElementsByTagName("descripcion").item(0).getTextContent();
                     Cliente cliente = new Cliente(IDCliente, descripcion);
                     clientes.add(cliente);
-
                 }
             }
             return clientes;

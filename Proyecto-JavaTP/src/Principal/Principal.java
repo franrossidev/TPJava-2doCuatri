@@ -19,8 +19,9 @@ import java.util.ArrayList;
 
 public class Principal extends JDialog {
     private JPanel contentPane;
-    private JButton buttonOK;
-    private JButton buttonCancel;
+    private JButton buttonBuscar;
+    private JTextArea textArea1;
+    private JComboBox clienteComboBox;
     private final ArrayList<Cliente> listaclientes;
     private final ArrayList<Accesorio> listaaccesorios;
     private final ArrayList<Stand> listastands;
@@ -28,25 +29,17 @@ public class Principal extends JDialog {
     public Principal() {
         setContentPane(contentPane);
         setModal(true);
-        getRootPane().setDefaultButton(buttonOK);
+        getRootPane().setDefaultButton(buttonBuscar);
 
-        String xmlFilePath = "src/Cliente/clientes.xml"; // Reemplaza con la ubicación de tu archivo XML
+        String xmlFilePath = "src/Cliente/clientes.xml";
         listaclientes = Cliente.cargaXML(xmlFilePath);
 
-        xmlFilePath = "src/Accesorios/accesorios.xml";
-        listaaccesorios = Accesorio.cargaXML(xmlFilePath);
-
-        xmlFilePath = "src/Stands/stands.xml";
-        listastands = loadFromXMLstand(xmlFilePath);
-        buttonOK.addActionListener(new ActionListener() {
+        for (Cliente cliente : listaclientes) {
+            clienteComboBox.addItem(String.valueOf(cliente.getIDCliente()));
+        }
+        buttonBuscar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onOK();
-            }
-        });
-
-        buttonCancel.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onCancel();
             }
         });
 
@@ -67,34 +60,32 @@ public class Principal extends JDialog {
 
         //Lectura de archivos XMLs
 
+
+        xmlFilePath = "src/Accesorios/accesorios.xml";
+        listaaccesorios = Accesorio.cargaXML(xmlFilePath);
+
+        xmlFilePath = "src/Stands/stands.xml";
+        listastands = loadFromXMLstand(xmlFilePath);
+
+        mostrarStand(listastands.get(0));
     }
 
     private void onOK() {
         // add your code here
-        dispose();
+        long idCliente = Long.parseLong((String) clienteComboBox.getSelectedItem());
+        textArea1.setText(listastands.get((int) idCliente - 1).mostrar(listaaccesorios));
     }
-
-    private void onCancel() {
-        // add your code here if necessary
-        dispose();
+    private void mostrarStand(Stand stand) {
+        textArea1.setText(stand.mostrar(listaaccesorios));
     }
-
     public static ArrayList<Stand> loadFromXMLstand(String xmlFilePath) {
         try {
-            // Crear una fábrica de constructores de documentos
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
-
-            // Parsear el archivo XML
             Document document = builder.parse(new File(xmlFilePath));
-
-            // Obtener la lista de nodos de stand
             NodeList nodeList = document.getElementsByTagName("stand");
-
-            // Crear una lista de stands
             ArrayList<Stand> stands = new ArrayList<>();
 
-            // Recorrer cada nodo de stand y crear un objeto Stand
             for (int i = 0; i < nodeList.getLength(); i++) {
                 Node node = nodeList.item(i);
                 if (node.getNodeType() == Node.ELEMENT_NODE) {
@@ -103,18 +94,25 @@ public class Principal extends JDialog {
                     int superficie = Integer.parseInt(element.getElementsByTagName("superficie").item(0).getTextContent());
                     double precioM2 = Double.parseDouble(element.getElementsByTagName("precioM2").item(0).getTextContent());
                     long idCliente = Long.parseLong(element.getElementsByTagName("idCliente").item(0).getTextContent());
-                    NodeList accesoriosNodeList = element.getElementsByTagName("accesorio");
-                    int luminarias = 0;
-                    ArrayList<Accesorio> accesorios = new ArrayList<>();
+
+                    // Carga de accesorios utilizando la función cargaXML de la clase Accesorio
+                    NodeList accesoriosNodeList = element.getElementsByTagName("accesorios");
+                    ArrayList<Long> accesorios = new ArrayList<>();
                     for (int j = 0; j < accesoriosNodeList.getLength(); j++) {
-                        Node accesorioNode = accesoriosNodeList.item(j);
-                        if (accesorioNode.getNodeType() == Node.ELEMENT_NODE) {
-                            Element accesorioElement = (Element) accesorioNode;
-                            long IDAccesorio = Long.parseLong(accesorioElement.getElementsByTagName("IDAccesorio").item(0).getTextContent());
-                            String descripcion = accesorioElement.getElementsByTagName("descripcion").item(0).getTextContent();
-                            double precioAlquiler = Double.parseDouble(accesorioElement.getElementsByTagName("precioAlquiler").item(0).getTextContent());
-                            accesorios.add(new Accesorio(IDAccesorio, descripcion, precioAlquiler));
+                        Node accesoriosNode = accesoriosNodeList.item(j);
+                        if (accesoriosNode.getNodeType() == Node.ELEMENT_NODE) {
+                            Element accesoriosElement = (Element) accesoriosNode;
+                            NodeList accesorioNodeList = accesoriosElement.getElementsByTagName("accesorio");
+                            for (int k = 0; k < accesorioNodeList.getLength(); k++) {
+                                Element accesorioElement = (Element) accesorioNodeList.item(k);
+                                long IDAccesorio = Long.parseLong(accesorioElement.getTextContent());
+                                accesorios.add(IDAccesorio);
+                            }
                         }
+                    }
+                    int luminarias = 0;
+                    if (element.getElementsByTagName("luminarias").getLength() > 0) {
+                        luminarias = Integer.parseInt(element.getElementsByTagName("luminarias").item(0).getTextContent());
                     }
 
                     // Crear el objeto Stand según el tipo y la presencia de luminarias
@@ -131,5 +129,4 @@ public class Principal extends JDialog {
             return null;
         }
     }
-
 }

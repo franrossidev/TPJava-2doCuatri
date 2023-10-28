@@ -33,27 +33,26 @@ public class Accesorio {
     public String getDescripcion() {
         return descripcion;
     }
+
+    public String mostrar() {
+        return "ID Accesorio: " + this.IDAccesorio + "\n" +
+                "Descripción: " + this.descripcion + "\n" +
+                "Precio de alquiler: " + this.precioAlquiler + "\n";
+    }
     public static ArrayList<Accesorio> cargaXML(String xmlFilePath) {
         try {
-            // Crear una fábrica de constructores de documentos
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
-
-            // Parsear el archivo XML
             Document document = builder.parse(new File(xmlFilePath));
 
-            // Obtener la lista de nodos de accesorio
-            NodeList nodeList = document.getElementsByTagName("Accesorio");
-
-            // Crear una lista de accesorios
+            NodeList nodeList = document.getElementsByTagName("accesorio");
             ArrayList<Accesorio> accesorios = new ArrayList<>();
 
-            // Recorrer cada nodo de accesorio y crear un objeto Accesorio
             for (int i = 0; i < nodeList.getLength(); i++) {
                 Node node = nodeList.item(i);
                 if (node.getNodeType() == Node.ELEMENT_NODE) {
                     Element element = (Element) node;
-                    long IDAccesorio = Long.parseLong(element.getElementsByTagName("IDAccesorio").item(0).getTextContent());
+                    long IDAccesorio = Long.parseLong(element.getElementsByTagName("id").item(0).getTextContent());
                     String descripcion = element.getElementsByTagName("descripcion").item(0).getTextContent();
                     double precioAlquiler = Double.parseDouble(element.getElementsByTagName("precioAlquiler").item(0).getTextContent());
                     Accesorio accesorio = new Accesorio(IDAccesorio, descripcion, precioAlquiler);
@@ -66,4 +65,5 @@ public class Accesorio {
             return null;
         }
     }
+
 }

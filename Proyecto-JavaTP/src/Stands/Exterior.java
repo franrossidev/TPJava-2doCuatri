@@ -6,10 +6,13 @@ import java.util.ArrayList;
 
 public class Exterior extends Stand {
 
-    public Exterior(String _IDStand, int _superficie, double _precioM2, long _IDCliente, ArrayList<Accesorio> _listaAccesorios) {
+    public Exterior(String _IDStand, int _superficie, double _precioM2, long _IDCliente, ArrayList<Long> _listaAccesorios) {
         super(_IDStand, _superficie, _precioM2, _IDCliente, _listaAccesorios);
     }
-
+    public double Valor(ArrayList<Accesorio> listaPreciosAccesorios){
+        return 0;
+    }
+/*
     @Override
     public double Valor() {
         double sumaPrecios=0;
@@ -25,5 +28,5 @@ public class Exterior extends Stand {
             }
         }
         return sumaPrecios + getPrecioM2() * getSuperficie();
-    }
+    }*/
 }

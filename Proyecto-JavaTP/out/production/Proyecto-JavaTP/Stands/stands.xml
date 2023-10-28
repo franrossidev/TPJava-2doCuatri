@@ -1,5 +1,5 @@
 <feria>
-    <stand tipo="interior">
+    <stand>
         <codigo>STAND01</codigo>
         <superficie>25</superficie>
         <precioM2>120.25</precioM2>
@@ -11,7 +11,7 @@
         </accesorios>
         <luminarias>7</luminarias>
     </stand>
-    <stand tipo="exterior">
+    <stand>
         <codigo>STAND02</codigo>
         <superficie>23</superficie>
         <precioM2>110.25</precioM2>
@@ -20,7 +20,7 @@
             <accesorio>02</accesorio>
         </accesorios>
     </stand>
-    <stand tipo="interior">
+    <stand>
         <codigo>STAND03</codigo>
         <superficie>30</superficie>
         <precioM2>110.0</precioM2>
@@ -30,13 +30,13 @@
         </accesorios>
         <luminarias>5</luminarias>
     </stand>
-    <stand tipo="exterior">
+    <stand>
         <codigo>STAND04</codigo>
         <superficie>35</superficie>
         <precioM2>100.0</precioM2>
         <idCliente>0004</idCliente>
     </stand>
-    <stand tipo="interior">
+    <stand>
         <codigo>STAND05</codigo>
         <superficie>20</superficie>
         <precioM2>125.0</precioM2>
@@ -49,7 +49,7 @@
         </accesorios>
         <luminarias>6</luminarias>
     </stand>
-    <stand tipo="exterior">
+    <stand>
         <codigo>STAND06</codigo>
         <superficie>28</superficie>
         <precioM2>95.0</precioM2>
@@ -60,7 +60,7 @@
             <accesorio>9</accesorio>
         </accesorios>
     </stand>
-    <stand tipo="interior">
+    <stand>
         <codigo>STAND07</codigo>
         <superficie>15</superficie>
         <precioM2>130.0</precioM2>
@@ -72,20 +72,20 @@
         </accesorios>
         <luminarias>4</luminarias>
     </stand>
-    <stand tipo="exterior">
+    <stand>
         <codigo>STAND08</codigo>
         <superficie>40</superficie>
         <precioM2>90.0</precioM2>
         <idCliente>0008</idCliente>
     </stand>
-    <stand tipo="interior">
+    <stand>
         <codigo>STAND09</codigo>
         <superficie>25</superficie>
         <precioM2>80.0</precioM2>
         <idCliente>0009</idCliente>
         <luminarias>2</luminarias>
     </stand>
-    <stand tipo="exterior">
+    <stand>
         <codigo>STAND10</codigo>
         <superficie>30</superficie>
         <precioM2>130.0</precioM2>
