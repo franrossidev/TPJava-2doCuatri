@@ -1,5 +1,6 @@
 package Principal;
 
+
 import Accesorios.Accesorio;
 import Cliente.Cliente;
 import Stands.Exterior;
@@ -25,6 +26,7 @@ public class Principal extends JDialog {
     private JButton anteriorButton;
     private JButton siguienteButton;
     private JTextArea Numeracion;
+    private JButton reporteButton;
     private final ArrayList<Cliente> listaclientes;
     private final ArrayList<Accesorio> listaaccesorios;
     private final ArrayList<Stand> listastands;
@@ -40,24 +42,14 @@ public class Principal extends JDialog {
         String xmlFilePath = "src/Cliente/clientes.xml";
         listaclientes = Cliente.cargaXML(xmlFilePath);
 
+        assert listaclientes != null;
         for (Cliente cliente : listaclientes) {
             clienteComboBox.addItem(String.valueOf(cliente.getDescripcion()));
         }
-        buttonBuscar.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onBuscar();
-            }
-        });
-        anteriorButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onAnterior();
-            }
-        });
-        siguienteButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onSiguiente();
-            }
-        });
+        reporteButton.addActionListener(e -> onReporte());
+        buttonBuscar.addActionListener(e -> onBuscar());
+        anteriorButton.addActionListener(e -> onAnterior());
+        siguienteButton.addActionListener(e -> onSiguiente());
 
         // call onCancel() when cross is clicked
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
@@ -68,11 +60,7 @@ public class Principal extends JDialog {
         });
 
         // call onCancel() on ESCAPE
-        contentPane.registerKeyboardAction(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-            }
-        }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+        contentPane.registerKeyboardAction(e -> dispose(), KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
 
         //Lectura de archivos XMLs
 
@@ -86,6 +74,9 @@ public class Principal extends JDialog {
         mostrarStand(listastands.get(0));
     }
 
+    private void onReporte(){
+
+    }
     private void onBuscar() {
         // Obtener el ID del cliente a partir de la descripción seleccionada en el JComboBox
         String descripcionSeleccionada = (String) clienteComboBox.getSelectedItem();

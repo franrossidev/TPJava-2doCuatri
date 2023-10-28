@@ -12,8 +12,8 @@ import java.util.ArrayList;
 
 public class Cliente {
 
-    private long IDCliente;
-    private String descripcion; //NOMBRE Y APELLIDO SI ES PARTICULAR O RAZON SOCIAL SI ES EMPRESA
+    private final long IDCliente;
+    private final String descripcion; //NOMBRE Y APELLIDO SI ES PARTICULAR O RAZON SOCIAL SI ES EMPRESA
 
     //METODOS
 

@@ -23,9 +23,7 @@ public class Interior extends Stand {
         return sumaPrecio + (getPrecioM2() * getSuperficie()) + cantLuminarias * 1000;
     }
 
-    public int getCantLuminarias() {
-        return cantLuminarias;
-    }
+
     @Override
     public String mostrar(ArrayList<Accesorio> listaPreciosAccesorios) {
         String standInfo = super.mostrar(listaPreciosAccesorios); // Obtener la información básica del stand

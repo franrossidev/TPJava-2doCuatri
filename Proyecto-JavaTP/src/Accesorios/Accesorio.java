@@ -12,9 +12,9 @@ import java.util.ArrayList;
 
 public class Accesorio {
 
-    private long IDAccesorio;
-    private String descripcion;
-    private double precioAlquiler;
+    private final long IDAccesorio;
+    private final String descripcion;
+    private final double precioAlquiler;
 
     //METODOS
 
@@ -24,14 +24,6 @@ public class Accesorio {
 
     public long getIDAccesorio() {
         return IDAccesorio;
-    }
-
-    public double getPrecioAlquiler() {
-        return precioAlquiler;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
     }
 
     public String mostrar() {

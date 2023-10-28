@@ -51,6 +51,14 @@
                   <text value="cliente"/>
                 </properties>
               </component>
+              <component id="9e91c" class="javax.swing.JButton" binding="reporteButton" default-binding="true">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Reporte"/>
+                </properties>
+              </component>
             </children>
           </grid>
           <grid id="3da8c" layout-manager="GridLayoutManager" row-count="1" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
