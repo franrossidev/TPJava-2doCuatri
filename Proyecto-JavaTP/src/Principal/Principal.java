@@ -37,7 +37,7 @@ public class Principal extends JDialog {
         listaclientes = Cliente.cargaXML(xmlFilePath);
 
         for (Cliente cliente : listaclientes) {
-            clienteComboBox.addItem(String.valueOf(cliente.getIDCliente()));
+            clienteComboBox.addItem(String.valueOf(cliente.getDescripcion()));
         }
         buttonBuscar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -73,12 +73,29 @@ public class Principal extends JDialog {
     }
 
     private void onBuscar() {
-        // add your code here
-        long idCliente = Long.parseLong((String) clienteComboBox.getSelectedItem());
-        textArea1.setText(listastands.get((int) idCliente - 1).mostrar(listaaccesorios));
+        // Obtener el ID del cliente a partir de la descripción seleccionada en el JComboBox
+        String descripcionSeleccionada = (String) clienteComboBox.getSelectedItem();
+        long idCliente = obtenerIdClientePorDescripcion(descripcionSeleccionada);
+
+        // Utilizar el ID obtenido para mostrar la información del stand correspondiente
+        if (idCliente != -1) {
+            textArea1.setText(listastands.get((int) idCliente - 1).mostrar(listaaccesorios));
+        } else {
+            textArea1.setText("No se encontró el cliente con la descripción especificada.");
+        }
     }
+
     private void mostrarStand(Stand stand) {
         textArea1.setText(stand.mostrar(listaaccesorios));
+    }
+
+    private long obtenerIdClientePorDescripcion(String descripcion) {
+        for (Cliente cliente : listaclientes) {
+            if (cliente.getDescripcion().equals(descripcion)) {
+                return cliente.getIDCliente();
+            }
+        }
+        return -1; // Retorna -1 si no se encuentra el cliente
     }
     public static ArrayList<Stand> loadFromXMLstand(String xmlFilePath) {
         try {
