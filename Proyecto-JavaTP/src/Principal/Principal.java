@@ -80,7 +80,7 @@ public class Principal extends JDialog {
     }
 
     private void onReporte(){
-        Reporte reporte = new Reporte();
+        Reporte reporte = new Reporte(listastands,listaaccesorios);
         reporte.pack();
         reporte.setVisible(true);
     }
