@@ -26,6 +26,10 @@ public class Accesorio {
         return IDAccesorio;
     }
 
+    public double getPrecioAlquiler() {
+            return precioAlquiler;
+        }
+
     public String mostrar() {
         return "ID Accesorio: " + this.IDAccesorio + "\n" +
                 "Descripción: " + this.descripcion + "\n" +

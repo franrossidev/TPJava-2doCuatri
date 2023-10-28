@@ -13,8 +13,6 @@ public class Reportes {
     // Metodos
     public void reporteStands(ArrayList<Stand> listaStands){
 
-        String xmlFilePath = "src/Accesorios/accesorios.xml";
-
         double valorPromedio=0;
         int i=1;
         StringBuilder texto = new StringBuilder();
@@ -22,8 +20,7 @@ public class Reportes {
         Collections.sort(listaStandsActualizada, new Comparator<Stand>(){
             @Override
             public int compare(Stand s1, Stand s2) {
-               // return new Double(s1.Valor(listaaccesorios)).compareTo(new Double(s2.Valor(listaaccesorios)));
-                return 0;
+               return new Double(s1.Valor(listaaccesorios)).compareTo(new Double(s2.Valor(listaaccesorios)));
             }
         });
         // Armo el texto con el Listado
