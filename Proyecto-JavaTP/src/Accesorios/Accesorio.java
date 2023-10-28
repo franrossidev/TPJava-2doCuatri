@@ -30,6 +30,10 @@ public class Accesorio {
             return precioAlquiler;
         }
 
+    public String getDescripcion() {
+        return descripcion;
+    }
+
     public String mostrar() {
         return "ID Accesorio: " + this.IDAccesorio + "\n" +
                 "Descripción: " + this.descripcion + "\n" +
