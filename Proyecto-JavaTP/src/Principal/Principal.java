@@ -14,9 +14,13 @@ import org.w3c.dom.NodeList;
 import javax.swing.*;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import java.awt.event.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Principal extends JDialog {
     private JPanel contentPane;
@@ -70,7 +74,7 @@ public class Principal extends JDialog {
 
         xmlFilePath = "src/Stands/stands.xml";
         listastands = loadFromXMLstand(xmlFilePath);
-
+        Collections.sort(listastands, Comparator.comparing(Stand::getIDCliente));
         mostrarStand(listastands.get(0));
     }
 

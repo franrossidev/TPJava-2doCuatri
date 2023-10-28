@@ -14,8 +14,7 @@ public class Reportes {
     public void reporteStands(ArrayList<Stand> listaStands){
 
         String xmlFilePath = "src/Accesorios/accesorios.xml";
-        listaaccesorios = Accesorio.cargaXML(xmlFilePath);
-        listaStandsActualizada=listaStands;
+
         double valorPromedio=0;
         int i=1;
         StringBuilder texto = new StringBuilder();
