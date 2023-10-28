@@ -86,10 +86,10 @@
         <luminarias>2</luminarias>
     </stand>
     <stand>
-        <codigo>STAND10</codigo>
-        <superficie>30</superficie>
-        <precioM2>130.0</precioM2>
-        <idCliente>0010</idCliente>
+        <codigo>STAND01</codigo>
+        <superficie>68</superficie>
+        <precioM2>150.25</precioM2>
+        <idCliente>0001</idCliente>
         <accesorios>
             <accesorio>6</accesorio>
             <accesorio>2</accesorio>

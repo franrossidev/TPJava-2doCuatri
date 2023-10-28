@@ -22,10 +22,14 @@ public class Principal extends JDialog {
     private JButton buttonBuscar;
     private JTextArea textArea1;
     private JComboBox clienteComboBox;
+    private JButton anteriorButton;
+    private JButton siguienteButton;
+    private JTextArea Numeracion;
     private final ArrayList<Cliente> listaclientes;
     private final ArrayList<Accesorio> listaaccesorios;
     private final ArrayList<Stand> listastands;
-
+    private Stand standActual;
+    private ArrayList<Stand> standsCliente;
     public Principal() {
         setContentPane(contentPane);
         setModal(true);
@@ -42,6 +46,16 @@ public class Principal extends JDialog {
         buttonBuscar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onBuscar();
+            }
+        });
+        anteriorButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                onAnterior();
+            }
+        });
+        siguienteButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                onSiguiente();
             }
         });
 
@@ -77,14 +91,45 @@ public class Principal extends JDialog {
         String descripcionSeleccionada = (String) clienteComboBox.getSelectedItem();
         long idCliente = obtenerIdClientePorDescripcion(descripcionSeleccionada);
 
-        // Utilizar el ID obtenido para mostrar la información del stand correspondiente
         if (idCliente != -1) {
-            textArea1.setText(listastands.get((int) idCliente - 1).mostrar(listaaccesorios));
+            standsCliente = obtenerStandsPorIdCliente(idCliente);
+
+            if (!standsCliente.isEmpty()) {
+                standActual = standsCliente.get(0);
+                mostrarStand(standActual);
+                Numeracion.setText( "1/" + standsCliente.size());
+            } else {
+                textArea1.setText("No se encontró ningún stand para el cliente especificado.");
+            }
         } else {
             textArea1.setText("No se encontró el cliente con la descripción especificada.");
         }
+
     }
 
+    private void onAnterior() {
+        if (standActual != null && standsCliente != null) {
+            int index = standsCliente.indexOf(standActual);
+            if (index > 0) {
+                Stand anteriorStand = standsCliente.get(index - 1);
+                mostrarStand(anteriorStand);
+                standActual = anteriorStand;
+                Numeracion.setText((index) + "/" + standsCliente.size());
+            }
+        }
+    }
+
+    private void onSiguiente() {
+        if (standActual != null && standsCliente != null) {
+            int index = standsCliente.indexOf(standActual);
+            if (index < standsCliente.size() - 1) {
+                Stand siguienteStand = standsCliente.get(index + 1);
+                mostrarStand(siguienteStand);
+                standActual = siguienteStand;
+                Numeracion.setText((index + 2) + "/" + standsCliente.size());
+            }
+        }
+    }
     private void mostrarStand(Stand stand) {
         textArea1.setText(stand.mostrar(listaaccesorios));
     }
@@ -96,6 +141,17 @@ public class Principal extends JDialog {
             }
         }
         return -1; // Retorna -1 si no se encuentra el cliente
+    }
+    private ArrayList<Stand> obtenerStandsPorIdCliente(long idCliente) {
+        ArrayList<Stand> standsPorCliente = new ArrayList<>();
+
+        for (Stand stand : listastands) {
+            if (stand.getIDCliente() == idCliente) {
+                standsPorCliente.add(stand);
+            }
+        }
+
+        return standsPorCliente;
     }
     public static ArrayList<Stand> loadFromXMLstand(String xmlFilePath) {
         try {
