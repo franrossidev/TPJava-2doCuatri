@@ -8,7 +8,8 @@ import org.w3c.dom.NodeList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.logging.Handler;
 
 public class Accesorio {
 
@@ -39,14 +40,14 @@ public class Accesorio {
                 "Descripción: " + this.descripcion + "\n" +
                 "Precio de alquiler: " + this.precioAlquiler + "\n";
     }
-    public static ArrayList<Accesorio> cargaXML(String xmlFilePath) {
+    public static HashSet<Accesorio> cargaXML(String xmlFilePath) {
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document document = builder.parse(new File(xmlFilePath));
 
             NodeList nodeList = document.getElementsByTagName("accesorio");
-            ArrayList<Accesorio> accesorios = new ArrayList<>();
+            HashSet<Accesorio> accesorios = new HashSet<>();
 
             for (int i = 0; i < nodeList.getLength(); i++) {
                 Node node = nodeList.item(i);

@@ -22,6 +22,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashSet;
 
 public class Principal extends JDialog {
     private JPanel contentPane;
@@ -33,7 +34,7 @@ public class Principal extends JDialog {
     private JTextArea Numeracion;
     private JButton reporteButton;
     private final ArrayList<Cliente> listaclientes;
-    private final ArrayList<Accesorio> listaaccesorios;
+    private final HashSet<Accesorio> listaaccesorios;
     private final ArrayList<Stand> listastands;
     private Stand standActual;
     private ArrayList<Stand> standsCliente;
@@ -170,7 +171,7 @@ public class Principal extends JDialog {
 
                     // Carga de accesorios utilizando la función cargaXML de la clase Accesorio
                     NodeList accesoriosNodeList = element.getElementsByTagName("accesorios");
-                    ArrayList<Long> accesorios = new ArrayList<>();
+                    HashSet<Long> accesorios = new HashSet<>();
                     for (int j = 0; j < accesoriosNodeList.getLength(); j++) {
                         Node accesoriosNode = accesoriosNodeList.item(j);
                         if (accesoriosNode.getNodeType() == Node.ELEMENT_NODE) {

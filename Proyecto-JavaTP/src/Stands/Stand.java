@@ -2,17 +2,19 @@ package Stands;
 import Accesorios.Accesorio;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+
 public abstract class Stand {
 
     private String IDStand;
     private int superficie;
     private double precioM2;
     private long IDCliente;
-    private ArrayList<Long> listaAccesorios;
+    private HashSet<Long> listaAccesorios;
 
     //MÉTODOS
 
-    public Stand(String _IDStand, int _superficie, double _precioM2, long _IDCliente, ArrayList<Long> _listaAccesorios){
+    public Stand(String _IDStand, int _superficie, double _precioM2, long _IDCliente, HashSet<Long> _listaAccesorios){
         IDStand = _IDStand;
         superficie = _superficie;
         precioM2 = _precioM2;
@@ -26,7 +28,7 @@ public abstract class Stand {
         return IDStand;
     }
 
-    public ArrayList<Long> getListaAccesorios() {
+    public HashSet<Long> getListaAccesorios() {
         return listaAccesorios;
     }
 
@@ -42,7 +44,7 @@ public abstract class Stand {
         return IDCliente;
     }
 
-    public String mostrar(ArrayList<Accesorio> listaPreciosAccesorios) {
+    public String mostrar(HashSet<Accesorio> listaPreciosAccesorios) {
         String result = "ID del Stand: " + IDStand + "\n" +
                 "Superficie: " + superficie + "\n" +
                 "Precio por metro cuadrado: " + precioM2 + "\n" +
@@ -52,11 +54,11 @@ public abstract class Stand {
             result += "Accesorios: No hay accesorios disponibles para este stand.";
         } else {
             result += "\nAccesorios:\n";
-            for (int i = 0; i< listaAccesorios.size() ; i++) {
-                for (int j = 0;j < listaPreciosAccesorios.size(); j++) {
-                    Accesorio accesorioact = listaPreciosAccesorios.get(j);
-                    if (listaAccesorios.get(i) == accesorioact.getIDAccesorio()) {
-                        result += accesorioact.mostrar() + "\n";
+            for (Long aux : listaAccesorios) {
+                for (Accesorio acc : listaPreciosAccesorios) {
+                    if(aux == acc.getIDAccesorio()){
+                        result += acc.mostrar() + "\n";
+                        break;///tendria que averiguar si este break rompe solo el if, el for o los 2 for
                     }
                 }
             }
@@ -64,6 +66,6 @@ public abstract class Stand {
         return result;
     }
 
-    public abstract double Valor(ArrayList<Accesorio> listaPreciosAccesorios);
+    public abstract double Valor(HashSet<Accesorio> listaPreciosAccesorios);
 
 }

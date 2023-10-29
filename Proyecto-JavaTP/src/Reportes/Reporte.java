@@ -9,6 +9,7 @@ import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashSet;
 
 public class Reporte extends JDialog {
     private JPanel contentPane;
@@ -17,7 +18,7 @@ public class Reporte extends JDialog {
     private JTextPane textPaneStand;
     private JTextPane textPaneAccesorios;
 
-    public Reporte(ArrayList<Stand> listaS, ArrayList<Accesorio> listaA) {
+    public Reporte(ArrayList<Stand> listaS, HashSet<Accesorio> listaA) {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(bottonGuardar);
@@ -50,13 +51,13 @@ public class Reporte extends JDialog {
 
     }
 
-    public void setPanels(ArrayList<Stand> listaS, ArrayList<Accesorio> listaA){
+    public void setPanels(ArrayList<Stand> listaS, HashSet<Accesorio> listaA){
         textPaneStand.setText(reporteStands(listaS, listaA));
         textPaneAccesorios.setText(reporteAccesorios(listaA, listaS));
     }
     
     // Reporte de los Stands
-    public String reporteStands(ArrayList<Stand> listaStands, ArrayList<Accesorio> listaAccesorios){
+    public String reporteStands(ArrayList<Stand> listaStands, HashSet<Accesorio> listaAccesorios){
         ArrayList<Stand> listaStandsActualizada=listaStands;
         double valorPromedio=0;
         int i=1;
@@ -80,7 +81,7 @@ public class Reporte extends JDialog {
     }
 
     //Reporte de Accesorios
-    public String reporteAccesorios(ArrayList<Accesorio> listAccesorios, ArrayList<Stand> listaStands){
+    public String reporteAccesorios(HashSet<Accesorio> listAccesorios, ArrayList<Stand> listaStands){
         int i=1;
         String texto="";
 
@@ -90,7 +91,7 @@ public class Reporte extends JDialog {
             int sumaUsos=0;
             texto+="Accesorio: " + accesorio.getIDAccesorio() + " Descripcion: "+ accesorio.getDescripcion() + " Precio: $ " + accesorio.getPrecioAlquiler() + "\n";
             for (Stand stand : listaStands) {
-                ArrayList<Long> standLista=stand.getListaAccesorios();
+                HashSet<Long> standLista=stand.getListaAccesorios();
                 if(standLista!=null){
                     for (long acc : standLista) {
                         if(acc==accesorio.getIDAccesorio()){
