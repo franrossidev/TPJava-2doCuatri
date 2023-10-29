@@ -29,7 +29,7 @@ public class Reporte extends JDialog {
             }
         });
 
-        // call onCancel() when cross is clicked
+        //
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
@@ -37,7 +37,7 @@ public class Reporte extends JDialog {
             }
         });
 
-        // call onCancel() on ESCAPE
+        //
         contentPane.registerKeyboardAction(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 dispose();
@@ -47,8 +47,7 @@ public class Reporte extends JDialog {
     }
 
     private void onGuardar() {
-        // add your code here if necessary
-
+        //
     }
 
     public void setPanels(ArrayList<Stand> listaS, HashSet<Accesorio> listaA){
@@ -75,7 +74,7 @@ public class Reporte extends JDialog {
             texto+="Stand: #" + i + " Valor: $ " + stand.Valor(listaAccesorios) + "\n";
             valorPromedio+=stand.Valor(listaAccesorios);
         }
-        texto+="-- Valor Promedio del Stand: $ " + valorPromedio/listaStandsActualizada.size() + "--\n";
+        texto+="-- Valor Promedio del Stand: $ " + ((listaStandsActualizada.size() > 0) ? valorPromedio/listaStandsActualizada.size() : 0) + "--\n";//Controlo division por cero
 
         return texto;
     }
