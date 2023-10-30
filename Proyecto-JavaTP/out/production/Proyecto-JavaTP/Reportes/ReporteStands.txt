@@ -1,0 +1,24 @@
+Listado de Stands (Descendentemente x valor)
+
+Stand-ID: #STAND10     Valor: $ 11792.7
+Stand-ID: #STAND11     Valor: $ 11070.2
+Stand-ID: #STAND01     Valor: $ 10466.45
+Stand-ID: #STAND05     Valor: $ 9280.0
+Stand-ID: #STAND20     Valor: $ 9267.7
+Stand-ID: #STAND15     Valor: $ 9245.0
+Stand-ID: #STAND13     Valor: $ 8742.5
+Stand-ID: #STAND17     Valor: $ 8365.0
+Stand-ID: #STAND03     Valor: $ 8330.5
+Stand-ID: #STAND19     Valor: $ 6800.0
+Stand-ID: #STAND07     Valor: $ 6255.0
+Stand-ID: #STAND12     Valor: $ 5938.45
+Stand-ID: #STAND08     Valor: $ 5175.7
+Stand-ID: #STAND04     Valor: $ 5075.7
+Stand-ID: #STAND14     Valor: $ 4955.7
+Stand-ID: #STAND16     Valor: $ 4724.13
+Stand-ID: #STAND02     Valor: $ 4111.45
+Stand-ID: #STAND06     Valor: $ 4078.13
+Stand-ID: #STAND18     Valor: $ 4032.7
+Stand-ID: #STAND09     Valor: $ 4000.0
+
+-- Valor Promedio del Stand: $ 7085,35 --

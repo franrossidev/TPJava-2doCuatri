@@ -1,0 +1,32 @@
+Listado de Accesorios
+
+Accesorio: 4   Descripcion: Escritorio de Madera   Precio: $ 180.0
+Cantidad de usos en los stands: 4
+-----------------------------------------------------------------------------------
+Accesorio: 5   Descripcion: Lámpara de Pie   Precio: $ 30.5
+Cantidad de usos en los stands: 2
+-----------------------------------------------------------------------------------
+Accesorio: 1   Descripcion: Mesa Redonda   Precio: $ 130.2
+Cantidad de usos en los stands: 2
+-----------------------------------------------------------------------------------
+Accesorio: 7   Descripcion: Mesa de Conferencia   Precio: $ 150.0
+Cantidad de usos en los stands: 1
+-----------------------------------------------------------------------------------
+Accesorio: 10   Descripcion: Mesa de Recepción   Precio: $ 110.0
+Cantidad de usos en los stands: 2
+-----------------------------------------------------------------------------------
+Accesorio: 9   Descripcion: Pantalla LED   Precio: $ 280.0
+Cantidad de usos en los stands: 4
+-----------------------------------------------------------------------------------
+Accesorio: 6   Descripcion: Proyector HD   Precio: $ 320.0
+Cantidad de usos en los stands: 6
+-----------------------------------------------------------------------------------
+Accesorio: 8   Descripcion: Silla Acolchada   Precio: $ 70.0
+Cantidad de usos en los stands: 4
+-----------------------------------------------------------------------------------
+Accesorio: 2   Descripcion: Silla Plegable   Precio: $ 55.0
+Cantidad de usos en los stands: 6
+-----------------------------------------------------------------------------------
+Accesorio: 3   Descripcion: Televisor LCD   Precio: $ 250.0
+Cantidad de usos en los stands: 3
+-----------------------------------------------------------------------------------

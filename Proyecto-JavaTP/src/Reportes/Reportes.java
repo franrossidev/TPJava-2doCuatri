@@ -20,6 +20,7 @@ public class Reportes extends JDialog {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonGuardar);
+        setTitle("Reportes");
 
         buttonGuardar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
