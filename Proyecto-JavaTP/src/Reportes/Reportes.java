@@ -113,10 +113,10 @@ public class Reportes extends JDialog {
 
             // Cierro objeto para escribir
             escribir2.close();
-            System.out.println("Archivo de reporte de stands creado con exito.\n");
+            JOptionPane.showMessageDialog(null, "El archivo se a guardado correctamente", "PopUp Dialog", JOptionPane.INFORMATION_MESSAGE);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        JOptionPane.showMessageDialog(null, "El archivo se a guardado correctamente", "PopUp Dialog", JOptionPane.INFORMATION_MESSAGE);
+
     }
 }

@@ -38,6 +38,7 @@ public class Principal extends JDialog {
     private final ArrayList<Stand> listastands;
     private Stand standActual;
     private ArrayList<Stand> standsCliente;
+
     public Principal() {
         setContentPane(contentPane);
         setModal(true);
