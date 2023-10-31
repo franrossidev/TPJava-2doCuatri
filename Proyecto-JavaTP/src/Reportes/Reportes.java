@@ -59,12 +59,7 @@ public class Reportes extends JDialog {
         List<Accesorio> listaOrdenada = new ArrayList<>(listAccesorios);
 
         // Ordenar la lista según la descripción
-        listaOrdenada.sort(new Comparator<Accesorio>() {
-            @Override
-            public int compare(Accesorio a1, Accesorio a2) {
-                return a1.getDescripcion().compareTo(a2.getDescripcion());
-            }
-        });
+        listaOrdenada.sort(Comparator.comparing(Accesorio::getDescripcion));
 
         //Armo el texto con el Listado de Accesorios
         for (Accesorio accesorio : listaOrdenada) {
@@ -122,5 +117,6 @@ public class Reportes extends JDialog {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        JOptionPane.showMessageDialog(null, "El archivo se a guardado correctamente", "PopUp Dialog", JOptionPane.INFORMATION_MESSAGE);
     }
 }

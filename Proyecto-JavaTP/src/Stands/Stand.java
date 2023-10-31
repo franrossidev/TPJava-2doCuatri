@@ -43,27 +43,29 @@ public abstract class Stand {
     public long getIDCliente() {
         return IDCliente;
     }
-
-    public String mostrar(HashSet<Accesorio> listaPreciosAccesorios) {
-        String result = "ID del Stand: " + IDStand + "\n" +
+    public String toString(){
+        return "ID del Stand: " + IDStand + "\n" +
                 "Superficie: " + superficie + "\n" +
                 "Precio por metro cuadrado: " + precioM2 + "\n" +
                 "ID del Cliente: " + IDCliente + "\n";
+    }
+    public String mostrar(HashSet<Accesorio> listaPreciosAccesorios) {
+        StringBuilder result = new StringBuilder(toString());
 
         if (listaAccesorios.isEmpty()) {
-            result += "Accesorios: No hay accesorios disponibles para este stand.";
+            result.append("Accesorios: No hay accesorios disponibles para este stand.");
         } else {
-            result += "\nAccesorios:\n";
+            result.append("\nAccesorios:\n");
             for (Long aux : listaAccesorios) {
                 for (Accesorio acc : listaPreciosAccesorios) {
                     if(aux == acc.getIDAccesorio()){
-                        result += acc.mostrar() + "\n";
-                        break;///tendria que averiguar si este break rompe solo el if, el for o los 2 for
+                        result.append(acc.mostrar()).append("\n");
+                        break;
                     }
                 }
             }
         }
-        return result;
+        return result.toString();
     }
 
     public abstract double Valor(HashSet<Accesorio> listaPreciosAccesorios);
