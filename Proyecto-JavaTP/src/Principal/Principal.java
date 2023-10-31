@@ -20,7 +20,6 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 
@@ -28,11 +27,12 @@ public class Principal extends JDialog {
     private JPanel contentPane;
     private JButton buttonBuscar;
     private JTextArea textArea1;
-    private JComboBox clienteComboBox;
+    private JComboBox<String> clienteComboBox;
     private JButton anteriorButton;
     private JButton siguienteButton;
     private JTextArea Numeracion;
     private JButton reporteButton;
+    private JButton standsButton;
     private final ArrayList<Cliente> listaclientes;
     private final HashSet<Accesorio> listaaccesorios;
     private final ArrayList<Stand> listastands;
@@ -52,6 +52,7 @@ public class Principal extends JDialog {
         for (Cliente cliente : listaclientes) {
             clienteComboBox.addItem(String.valueOf(cliente.getDescripcion()));
         }
+        standsButton.addActionListener(e -> onStands());
         reporteButton.addActionListener(e -> onReporte());
         buttonBuscar.addActionListener(e -> onBuscar());
         anteriorButton.addActionListener(e -> onAnterior());
@@ -70,23 +71,34 @@ public class Principal extends JDialog {
 
         //Lectura de archivos XMLs
 
-
+        anteriorButton.setVisible(false);
+        siguienteButton.setVisible(false);
+        Numeracion.setVisible(false);
         xmlFilePath = "src/Accesorios/accesorios.xml";
         listaaccesorios = Accesorio.cargaXML(xmlFilePath);
 
         xmlFilePath = "src/Stands/stands.xml";
         listastands = loadFromXMLstand(xmlFilePath);
-        listastands.sort(Comparator.comparing(Stand::getIDCliente));
-        mostrarStand(listastands.get(0));
+        if (listastands != null) {
+            listastands.sort(Comparator.comparing(Stand::getIDCliente));
+        }
+        if (listastands != null) {
+            mostrarStand(listastands.get(0));
+        }
     }
 
+    private void onStands(){
+
+    }
     private void onReporte(){
         Reportes reportes = new Reportes(listastands,listaaccesorios);
         reportes.pack();
         reportes.setVisible(true);
     }
     private void onBuscar() {
-        // Obtener el ID del cliente a partir de la descripción seleccionada en el JComboBox
+        Numeracion.setVisible(true);
+        anteriorButton.setVisible(true);
+        siguienteButton.setVisible(true);
         String descripcionSeleccionada = (String) clienteComboBox.getSelectedItem();
         long idCliente = obtenerIdClientePorDescripcion(descripcionSeleccionada);
 
