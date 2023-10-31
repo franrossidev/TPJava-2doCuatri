@@ -2,7 +2,6 @@ package Stands;
 
 import Accesorios.Accesorio;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Exterior extends Stand {

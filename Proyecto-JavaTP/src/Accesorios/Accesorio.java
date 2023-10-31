@@ -9,7 +9,6 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.util.HashSet;
-import java.util.logging.Handler;
 
 public class Accesorio {
 

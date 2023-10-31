@@ -1,16 +1,16 @@
 package Stands;
 import Accesorios.Accesorio;
 
-import java.util.ArrayList;
+
 import java.util.HashSet;
 
 public abstract class Stand {
 
-    private String IDStand;
-    private int superficie;
-    private double precioM2;
-    private long IDCliente;
-    private HashSet<Long> listaAccesorios;
+    private final String IDStand;
+    private final int superficie;
+    private final double precioM2;
+    private final long IDCliente;
+    private final HashSet<Long> listaAccesorios;
 
     //MÉTODOS
 
@@ -20,7 +20,7 @@ public abstract class Stand {
         precioM2 = _precioM2;
         IDCliente = _IDCliente;
         listaAccesorios = _listaAccesorios;
-    };
+    }
 
     //DESARROLLAR EL TOSTRING
 

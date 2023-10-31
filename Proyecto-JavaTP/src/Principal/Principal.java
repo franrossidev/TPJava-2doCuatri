@@ -76,7 +76,7 @@ public class Principal extends JDialog {
 
         xmlFilePath = "src/Stands/stands.xml";
         listastands = loadFromXMLstand(xmlFilePath);
-        Collections.sort(listastands, Comparator.comparing(Stand::getIDCliente));
+        listastands.sort(Comparator.comparing(Stand::getIDCliente));
         mostrarStand(listastands.get(0));
     }
 

@@ -20,13 +20,9 @@ public class Reportes extends JDialog {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonGuardar);
-        setTitle("Reportes");
+        setTitle("Reporte");
 
-        buttonGuardar.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onGuardar();
-            }
-        });
+        buttonGuardar.addActionListener(e -> onGuardar());
 
         // call onCancel() when cross is clicked
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
@@ -37,29 +33,24 @@ public class Reportes extends JDialog {
         });
 
         // call onCancel() on ESCAPE
-        contentPane.registerKeyboardAction(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-            }
-        }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+        contentPane.registerKeyboardAction(e -> dispose(), KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
 
         reporteStands(listaS,listaA);
         reporteAccesorios(listaA,listaS);
     }
 
     public void reporteStands(ArrayList<Stand> listaStands, HashSet<Accesorio> listaAccesorios){
-        ArrayList<Stand> listaStandsActualizada=listaStands;
         double valorPromedio=0;
         String texto="Listado de Stands (Descendentemente x valor)\n\n";
-        Collections.sort(listaStandsActualizada, (obj1, obj2) -> Double.compare(obj1.Valor(listaAccesorios), obj2.Valor(listaAccesorios)));
-        Collections.reverse(listaStandsActualizada);
+        listaStands.sort(Comparator.comparingDouble(obj -> obj.Valor(listaAccesorios)));
+        Collections.reverse(listaStands);
         // Armo el texto con el Listado de Stands
-        for (Stand stand : listaStandsActualizada) {
+        for (Stand stand : listaStands) {
             texto+="Stand-ID: #" + stand.getIDStand() + "     Valor: $ " + stand.Valor(listaAccesorios) + "\n";
             valorPromedio+=stand.Valor(listaAccesorios);
         }
-        String promedio = String.format("%.2f", valorPromedio/listaStandsActualizada.size());
-        texto+="\n-- Valor Promedio del Stand: $ " + ((listaStandsActualizada.size() > 0) ? promedio : 0) + " --\n";//Controlo division por cero
+        String promedio = String.format("%.2f", valorPromedio/ listaStands.size());
+        texto+="\n-- Valor Promedio del Stand: $ " + ((listaStands.size() > 0) ? promedio : 0) + " --\n";//Controlo division por cero
         textAreaStand.setText(texto);
     }
 
@@ -68,7 +59,7 @@ public class Reportes extends JDialog {
         List<Accesorio> listaOrdenada = new ArrayList<>(listAccesorios);
 
         // Ordenar la lista según la descripción
-        Collections.sort(listaOrdenada, new Comparator<Accesorio>() {
+        listaOrdenada.sort(new Comparator<Accesorio>() {
             @Override
             public int compare(Accesorio a1, Accesorio a2) {
                 return a1.getDescripcion().compareTo(a2.getDescripcion());

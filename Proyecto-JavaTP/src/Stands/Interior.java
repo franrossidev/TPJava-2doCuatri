@@ -16,7 +16,6 @@ public class Interior extends Stand {
     @Override
     public double Valor(HashSet<Accesorio> listaPreciosAccesorios) {
         double sumaPrecio = 0;
-        int i=0;
         for(long aux : getListaAccesorios()) {
             for (Accesorio acc : listaPreciosAccesorios) {
                 if (aux == acc.getIDAccesorio()) {

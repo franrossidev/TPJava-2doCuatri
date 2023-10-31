@@ -28,10 +28,6 @@ public class Cliente {
     public long getIDCliente() {
         return IDCliente;
     }
-    public String mostrar() {
-        return "ID Cliente: " + this.IDCliente + "\n" +
-                "Descripción: " + this.descripcion + "\n";
-    }
     public static ArrayList<Cliente> cargaXML(String xmlFilePath) {
         try {
             // Crear una fábrica de constructores de documentos
