@@ -7,6 +7,7 @@ import Reportes.Reportes;
 import Stands.Exterior;
 import Stands.Interior;
 import Stands.Stand;
+import Stands.Stands;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -46,13 +47,7 @@ public class Principal extends JDialog {
         setTitle("Principal");
 
 
-        String xmlFilePath = "src/Cliente/clientes.xml";
-        listaclientes = Cliente.cargaXML(xmlFilePath);
 
-        assert listaclientes != null;
-        for (Cliente cliente : listaclientes) {
-            clienteComboBox.addItem(String.valueOf(cliente.getDescripcion()));
-        }
         standsButton.addActionListener(e -> onStands());
         reporteButton.addActionListener(e -> onReporte());
         buttonBuscar.addActionListener(e -> onBuscar());
@@ -75,6 +70,14 @@ public class Principal extends JDialog {
         anteriorButton.setVisible(false);
         siguienteButton.setVisible(false);
         Numeracion.setVisible(false);
+
+        String xmlFilePath = "src/Cliente/clientes.xml";
+        listaclientes = Cliente.cargaXML(xmlFilePath);
+
+        assert listaclientes != null;
+        for (Cliente cliente : listaclientes) {
+            clienteComboBox.addItem(String.valueOf(cliente.getDescripcion()));
+        }
         xmlFilePath = "src/Accesorios/accesorios.xml";
         listaaccesorios = Accesorio.cargaXML(xmlFilePath);
 
@@ -83,12 +86,14 @@ public class Principal extends JDialog {
         if (listastands != null) {
             listastands.sort(Comparator.comparing(Stand::getIDCliente));
         }
-        if (listastands != null) {
-            mostrarStand(listastands.get(0));
-        }
+        textArea1.setText("Cliente no seleccionado.");
     }
 
     private void onStands(){
+
+        Stands stands = new Stands(listastands,listaaccesorios);
+        stands.pack();
+        stands.setVisible(true);
 
     }
     private void onReporte(){
