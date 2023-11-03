@@ -10,6 +10,12 @@ public class Exterior extends Stand {
         super(_IDStand, _superficie, _precioM2, _IDCliente, _listaAccesorios);
     }
 
+    public String mostrar(HashSet<Accesorio> listaPreciosAccesorios) {
+        String standInfo = super.mostrar(listaPreciosAccesorios); // Obtener la información básica del stand
+        standInfo += "\nEl valor del stand es: " + Valor(listaPreciosAccesorios) + "\n";
+        return standInfo;
+    }
+
     @Override
     public double Valor(HashSet<Accesorio> listaPreciosAccesorios) {
         double sumaPrecio=0;

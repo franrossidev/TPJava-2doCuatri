@@ -17,7 +17,7 @@ public class Cliente {
 
     //METODOS
 
-    Cliente(long _IDCliente, String _descripcion){
+    public Cliente(long _IDCliente, String _descripcion){
         IDCliente = _IDCliente; descripcion = _descripcion;
     }
 

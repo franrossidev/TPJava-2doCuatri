@@ -31,7 +31,8 @@ public class Interior extends Stand {
     @Override
     public String mostrar(HashSet<Accesorio> listaPreciosAccesorios) {
         String standInfo = super.mostrar(listaPreciosAccesorios); // Obtener la información básica del stand
-        standInfo += "\nCantidad de Luminarias: " + cantLuminarias + "\n"; // Agregar información de luminarias
+        standInfo += "\nEl valor del stand es: " + Valor(listaPreciosAccesorios) + "\n"
+        + "\nCantidad de Luminarias: " + cantLuminarias + "\n"; // Agregar información de luminarias
         return standInfo;
     }
 }
