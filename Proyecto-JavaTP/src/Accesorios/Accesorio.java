@@ -10,6 +10,10 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.util.HashSet;
 
+
+/**
+ * Clase accesorio representa los accesorios disponibles para ser contratados por los stands.
+ */
 public class Accesorio {
 
     private final long IDAccesorio;
@@ -18,27 +22,52 @@ public class Accesorio {
 
     //METODOS
 
+
+    /**
+     * Crea un accesorio con los siguientes parametros:
+     * @param _IDAccesorio identificador univoco del accesorio.
+     * @param _descripcion descripcion del accesorio.
+     * @param _precioAlquiler precio de alquiler del accesorio.
+     */
     public Accesorio(long _IDAccesorio, String _descripcion, double _precioAlquiler){
         IDAccesorio = _IDAccesorio; descripcion = _descripcion; precioAlquiler = _precioAlquiler;
     }
 
+    /**
+     * @return devuelve el ID del accesorio
+     */
     public long getIDAccesorio() {
         return IDAccesorio;
     }
 
+    /**
+     * @return devuelve el precio de alquiler
+     */
     public double getPrecioAlquiler() {
             return precioAlquiler;
         }
 
+    /**
+     * @return devuelve la descripcion del accesorio
+     */
     public String getDescripcion() {
         return descripcion;
     }
 
+    /**
+     * @return devuelve un objeto de tipo string con el ID del accesorio, su descripcion y su precio.
+     */
     public String mostrar() {
         return "ID Accesorio: " + this.IDAccesorio + "\n" +
                 "Descripción: " + this.descripcion + "\n" +
                 "Precio de alquiler: " + this.precioAlquiler + "\n";
     }
+
+    /**
+     * metodo que realiza la carga de datos de accesorios.
+     * @param xmlFilePath es el archivo XML del cual se extraen los datos
+     * @return devuelve una lista de accesorios de tipo HashSet cargada con los datos del XML proporcionado.
+     */
     public static HashSet<Accesorio> cargaXML(String xmlFilePath) {
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();

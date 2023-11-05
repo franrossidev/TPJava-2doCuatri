@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"Accesorios","l":"Accesorio"},{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"Principal","l":"App"},{"p":"Cliente","l":"Cliente"},{"p":"Stands","l":"Exterior"},{"p":"Stands","l":"Interior"},{"p":"Principal","l":"Principal"},{"p":"Reportes","l":"Reportes"},{"p":"Stands","l":"Stand"},{"p":"Stands","l":"Stands"}];updateSearchResults();

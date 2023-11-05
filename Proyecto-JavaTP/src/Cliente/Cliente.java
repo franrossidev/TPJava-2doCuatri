@@ -10,6 +10,9 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.util.ArrayList;
 
+/**
+ * Clase cliente representa al cliente que contrata stands.
+ */
 public class Cliente {
 
     private final long IDCliente;
@@ -17,17 +20,34 @@ public class Cliente {
 
     //METODOS
 
+    /**
+     * Crea un cliente proporcionando los siguientes parametros:
+     * @param _IDCliente identificador univoco del cliente.
+     * @param _descripcion nombre y apellido si es persona, razon social si es una empresa.
+     */
     public Cliente(long _IDCliente, String _descripcion){
         IDCliente = _IDCliente; descripcion = _descripcion;
     }
 
+    /**
+     * @return devuelve la descripcion del cliente.
+     */
     public String getDescripcion() {
         return descripcion;
     }
 
+    /**
+     * @return devuelve el ID del cliente.
+     */
     public long getIDCliente() {
         return IDCliente;
     }
+
+    /**
+     * Metodo que realiza la carga de datos de clientes.
+     * @param xmlFilePath Es el archivo XML del cual se extraen los datos de los clientes.
+     * @return devuelve una lista de tipo ArrayList con las datos ya cargados.
+     */
     public static ArrayList<Cliente> cargaXML(String xmlFilePath) {
         try {
             // Crear una fábrica de constructores de documentos
