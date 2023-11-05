@@ -148,7 +148,7 @@ public class Principal extends JDialog {
         }
     }
     private void mostrarStand(Stand stand) {
-        textArea1.setText(stand.mostrar(listaaccesorios));
+        textArea1.setText(stand.mostrar(listaaccesorios)); //POLIMORFISMO CON METODO mostrar
     }
 
     private long obtenerIdClientePorDescripcion(String descripcion) {

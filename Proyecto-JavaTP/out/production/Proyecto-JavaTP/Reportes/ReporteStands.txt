@@ -21,4 +21,4 @@ Stand-ID: #STAND06     Valor: $ 4078.13
 Stand-ID: #STAND18     Valor: $ 4032.7
 Stand-ID: #STAND09     Valor: $ 4000.0
 
--- Valor Promedio del Stand: $ 7085,35 --
+-- Valor Promedio del Stand: $ 7085.35 --
